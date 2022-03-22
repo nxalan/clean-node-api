@@ -5,3 +5,6 @@ git config --local //current project
 git config --global core.editor code //use vscode to edit git configurations
 git config --global --edit
 git c "chore: add eslint"
+git l
+git add .
+git commit --amend --no-edit //Merge the last commit in the tree with current changes
