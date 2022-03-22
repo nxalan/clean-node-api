@@ -25,3 +25,7 @@ npm i -D jest @types/jest ts-jest
 npx jest --init
 git c "chore: add jest"
 git c "chore: add jest to lint staged"
+git c "chore: update lint-staged"
+npx jest --clearCache
+
+npm install -g npm-check
