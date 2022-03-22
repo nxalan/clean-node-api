@@ -29,3 +29,4 @@ git c "chore: update lint-staged"
 npx jest --clearCache
 
 npm install -g npm-check
+git add src/presentation/controllers/signup.ts
