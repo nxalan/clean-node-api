@@ -4,3 +4,4 @@ git config --global //current user
 git config --local //current project
 git config --global core.editor code //use vscode to edit git configurations
 git config --global --edit
+git c "chore: add eslint"
