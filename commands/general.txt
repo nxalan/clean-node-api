@@ -1,0 +1,7 @@
+git init
+npm init -y //default package.json configuration
+git c "chore: add npm"
+git branch -M main
+git remote add origin https://github.com/nxalan/clean-node-api.git
+npm install -D git-commit-msg-linter
+git c "chore: add commit linter"
