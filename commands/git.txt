@@ -1,0 +1,6 @@
+git config --list //List configuration on the machine
+git config --system //entire machine
+git config --global //current user
+git config --local //current project
+git config --global core.editor code //use vscode to edit git configurations
+git config --global --edit
