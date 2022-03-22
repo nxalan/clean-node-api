@@ -5,3 +5,19 @@ git branch -M main
 git remote add origin https://github.com/nxalan/clean-node-api.git
 npm install -D git-commit-msg-linter
 git c "chore: add commit linter"
+npm install -D typescript @types/node
+git c "chore: add typescript"
+npm install --save-dev \
+  typescript@\* \
+  eslint@^7.12.1 \
+  eslint-plugin-promise@^5.0.0 \
+  eslint-plugin-import@^2.22.1 \
+  eslint-plugin-node@^11.1.0 \
+  @typescript-eslint/eslint-plugin@^4.0.1 \
+  eslint-config-standard-with-typescript@latest
+git c "chore: add eslint"
+git l
+git add .
+git commit --amend --no-edit //Merge the last commit in the tree with current changes
+npm install -D husky
+npm install -D lint-staged
