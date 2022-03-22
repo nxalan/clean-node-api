@@ -24,3 +24,4 @@ npm install -D lint-staged
 npm i -D jest @types/jest ts-jest
 npx jest --init
 git c "chore: add jest"
+git c "chore: add jest to lint staged"
