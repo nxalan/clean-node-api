@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test:staged": "jest"
+    "test": "npx jest --passWithNoTests",
+    "test:staged": "npx jest --passWithNoTests"
   },
   "keywords": [],
   "author": "",
