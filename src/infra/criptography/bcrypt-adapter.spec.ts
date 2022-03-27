@@ -7,11 +7,11 @@ jest.mock('bcrypt', () => ({
   }
 }))
 
+const salt = 12
+
 const makeSut = (): BcryptAdapter => {
   return new BcryptAdapter(salt)
 }
-
-const salt = 12
 
 describe('Bcrypt Adapter', () => {
   test('Should call bcrypt with correct values', async () => {
@@ -25,5 +25,13 @@ describe('Bcrypt Adapter', () => {
     const sut = makeSut()
     const hash = await sut.encrypt('any_value')
     expect(hash).toBe('hash')
+  })
+
+  test('Should thow if bcrypt throws', async () => {
+    const sut = makeSut()
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
+    jest.spyOn(bcrypt, 'hash').mockImplementation(async () => Promise.reject(new Error()))
+    const promise = sut.encrypt('any_value')
+    await expect(promise).rejects.toThrow()
   })
 })
