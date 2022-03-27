@@ -3,3 +3,4 @@ dist
 coverage
 commands
 commands/general.txt
+globalConfig.json
