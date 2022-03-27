@@ -30,3 +30,5 @@ npx jest --clearCache
 
 npm install -g npm-check
 git add src/presentation/controllers/signup.ts
+npm i validator
+npm i @types/validator -D
