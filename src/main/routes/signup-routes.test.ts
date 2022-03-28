@@ -12,19 +12,18 @@ describe('SignUp Routes', () => {
   })
 
   beforeEach(async () => {
-    const accountsCollection = await MongoHelper.getCollection('accounts')
-    await accountsCollection.deleteMany({})
+    const accountCollection = await MongoHelper.getCollection('accounts')
+    await accountCollection.deleteMany({})
   })
 
-  test('Should return an account on success', async () => {
-    await request(app)
-      .post('/api/signup')
-      .send({
-        name: 'Alan',
-        email: 'allan_net@live.com',
-        password: '123',
-        passwordConfirmation: '123'
-      })
-      .expect(200)
+  test('Should return an AddAccountModel on post ', async () => {
+    const account = {
+      name: 'any_name',
+      email: 'any_email@email.com',
+      password: 'any_password',
+      passwordConfirmation: 'any_password'
+    }
+    const response = await request(app).post('/api/signup').send(account)
+    expect(response.status).toBe(200)
   })
 })
