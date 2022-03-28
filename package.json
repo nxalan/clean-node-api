@@ -8,7 +8,7 @@
     "test": "npx jest --passWithNoTests --no-cache --runInBand",
     "test:verbose": "npx jest --passWithNoTests",
     "test:unit": "npm test -- --watch -c jest-unit-config.js",
-    "test:integration": "npm test -- --watch -c jest-integration-config.js",
+    "test:integration": "npm test -- --detectOpenHandles -c jest-integration-config.js",
     "test:staged": "npm test -- --findRelatedTests",
     "test:ci": "npm test -- --coverage"
   },
