@@ -18,7 +18,7 @@
     }
   },
   "keywords": [],
-  "author": "",
+  "author": "ALan Oliveira",
   "license": "ISC",
   "devDependencies": {
     "@shelf/jest-mongodb": "^1.1.3",
