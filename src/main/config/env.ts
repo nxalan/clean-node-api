@@ -1,4 +1,4 @@
 export default {
-  mongoUrl: global.__MONGO_URI__ || 'mongodb+srv://nodedb:nodedb@cluster0.ykmno.mongodb.net/clean-node-api?retryWrites=true&w=majority',
+  mongoUrl: global.__MONGO_URI__,
   port: process.env.PORT || 5050
 }

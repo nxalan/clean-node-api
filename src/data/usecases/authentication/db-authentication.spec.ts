@@ -8,6 +8,7 @@ const makeFakeAccount = (): AccountModel => ({
   name: 'any_name',
   email: 'any_email@mail.com',
   password: 'any_password'
+  // password: 'hashed_password'
 })
 
 const makeFakeAuthentication = (): AuthenticationModel => ({
@@ -31,6 +32,7 @@ interface SutTypes {
 
 const makeSut = (): SutTypes => {
   const loadAccountByEmailRepositoryStub = makeLoadAccountByEmailRepository()
+  // const hashComparerStub = makeHashComparer()
   const sut = new DbAuthentication(loadAccountByEmailRepositoryStub)
   return {
     sut,
@@ -59,4 +61,11 @@ describe('DbAuthentication UseCase', () => {
     const accessToken = await sut.auth(makeFakeAuthentication())
     expect(accessToken).toBeNull()
   })
+
+  /* test('Should call HashComparer with correct password', async () => {
+    const { sut, hashComparerStub } = makeSut()
+    const compareSpy = jest.spyOn(hashComparerStub, 'compare')
+    await sut.auth(makeFakeAuthentication())
+    expect(compareSpy).toHaveBeenCalledWith('any_password', 'hashed_password')
+  }) */
 })
