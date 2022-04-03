@@ -11,8 +11,9 @@ services:
   api:
     container_name: api-container
     build: .
-    restart: always
     image: clean-node-api
+    restart: always
+    command: npm start
     volumes:
       - ./dist:/usr/src/clean-node-api/dist
     ports:

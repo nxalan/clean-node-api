@@ -4,3 +4,4 @@ coverage
 commands
 globalConfig.json
 .env
+data
