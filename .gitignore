@@ -6,3 +6,5 @@ commands/general.txt
 globalConfig.json
 .env
 data
+!src/data
+.vscode
