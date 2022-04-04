@@ -2,6 +2,11 @@
 
 O objetivo desse repositório é criar uma API com uma arquitetura bem definida e desacoplada, utilizando TDD (programação orientada a testes) como metodologia de trabalho, Clean Architecture para fazer a distribuição de responsabilidades em camadas, sempre seguindo os princípios do SOLID e, sempre que possível, aplicando Design Patterns para resolver alguns problemas comuns.
 
+> ## APIs construídas no treinamento
+
+1. [Cadastro](./requirements/signup.md)
+2. [Login](./requirements/login.md)
+   
 > ## Princípios aplicados:
 * Single Responsibility Principle (SRP)
 * Open Closed Principle (OCP)
