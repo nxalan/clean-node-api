@@ -6,7 +6,8 @@ O objetivo desse repositório é criar uma API com uma arquitetura bem definida 
 
 1. [Cadastro](./requirements/signup.md)
 2. [Login](./requirements/login.md)
-   
+3. [Criar enquete](./requirements/add-survey.md)
+  
 > ## Princípios aplicados:
 * Single Responsibility Principle (SRP)
 * Open Closed Principle (OCP)
