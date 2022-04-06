@@ -12,5 +12,8 @@ module.exports = {
   timers: 'legacy',
   transform: {
     '.+\\.ts$': 'ts-jest'
+  },
+  moduleNameMapper: {
+    '@/(.*)': '<rootDir>/src/$1'
   }
 }
