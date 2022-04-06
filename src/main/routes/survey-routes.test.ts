@@ -59,7 +59,7 @@ describe('Survey Routes', () => {
         .expect(403)
     })
 
-    test('Should return 200 on add survey with valid accessToken', async () => {
+    test('Should return 204 on add survey with valid accessToken', async () => {
       const accessToken = await mockAccessToken()
       await request(app)
         .post('/api/surveys')
@@ -73,7 +73,7 @@ describe('Survey Routes', () => {
             answer: 'Answer 2'
           }]
         })
-        .expect(200)
+        .expect(204)
     })
   })
   describe('GET /surveys', () => {
