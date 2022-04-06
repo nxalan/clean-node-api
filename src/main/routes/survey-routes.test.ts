@@ -8,6 +8,25 @@ import env from '../config/env'
 let surveyCollection: Collection
 let accountCollection: Collection
 
+const mockAccessToken = async (): Promise<string> => {
+  const res = await accountCollection.insertOne({
+    name: 'Alan',
+    email: 'allan_net@live.com',
+    password: '123',
+    role: 'admin'
+  })
+  const id = res.insertedId.toHexString()
+  const accessToken = sign({ id }, env.jwtSecret)
+  await accountCollection.updateOne({
+    _id: res.insertedId
+  }, {
+    $set: {
+      accessToken
+    }
+  })
+  return accessToken
+}
+
 describe('Survey Routes', () => {
   beforeAll(async () => {
     await MongoHelper.connect(global.__MONGO_URI__)
@@ -40,23 +59,10 @@ describe('Survey Routes', () => {
         .expect(403)
     })
 
-    test('Should return 204 on add survey with valid accessToken', async () => {
-      const res = await accountCollection.insertOne({
-        name: 'Alan',
-        email: 'allan_net@live.com',
-        password: '123',
-        role: 'admin'
-      })
-      const id = res.ops[0]._id
-      const accessToken = sign({ id }, env.jwtSecret)
-      await accountCollection.updateOne({
-        _id: id
-      }, {
-        $set: {
-          accessToken
-        }
-      })
-      await request(app)
+    // OLHAR ISSO
+    test('Should return 200 on add survey with valid accessToken', async () => {
+      const accessToken = await mockAccessToken()
+      const res = await request(app)
         .post('/api/surveys')
         .set('x-access-token', accessToken)
         .send({
@@ -69,6 +75,7 @@ describe('Survey Routes', () => {
           }]
         })
         .expect(200)
+      console.log(res)
     })
   })
 })
