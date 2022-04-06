@@ -1,3 +1,5 @@
+[![Build Status](https://app.travis-ci.com/nxalan/clean-node-api.svg?branch=main)](https://app.travis-ci.com/nxalan/clean-node-api)
+[![Coverage Status](https://coveralls.io/repos/github/nxalan/clean-node-api/badge.svg?branch=main)](https://coveralls.io/github/nxalan/clean-node-api?branch=main)
 # **Clean Node API**
 
 O objetivo desse repositório é criar uma API com uma arquitetura bem definida e desacoplada, utilizando TDD (programação orientada a testes) como metodologia de trabalho, Clean Architecture para fazer a distribuição de responsabilidades em camadas, sempre seguindo os princípios do SOLID e, sempre que possível, aplicando Design Patterns para resolver alguns problemas comuns.

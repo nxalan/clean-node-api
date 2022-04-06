@@ -62,7 +62,7 @@ describe('Survey Routes', () => {
     // OLHAR ISSO
     test('Should return 200 on add survey with valid accessToken', async () => {
       const accessToken = await mockAccessToken()
-      const res = await request(app)
+      await request(app)
         .post('/api/surveys')
         .set('x-access-token', accessToken)
         .send({
@@ -75,7 +75,6 @@ describe('Survey Routes', () => {
           }]
         })
         .expect(200)
-      console.log(res)
     })
   })
 })
