@@ -59,7 +59,6 @@ describe('Survey Routes', () => {
         .expect(403)
     })
 
-    // OLHAR ISSO
     test('Should return 200 on add survey with valid accessToken', async () => {
       const accessToken = await mockAccessToken()
       await request(app)
@@ -75,6 +74,13 @@ describe('Survey Routes', () => {
           }]
         })
         .expect(200)
+    })
+  })
+  describe('GET /surveys', () => {
+    test('Should return 403 on load surveys without accessToken', async () => {
+      await request(app)
+        .get('/api/surveys')
+        .expect(403)
     })
   })
 })
