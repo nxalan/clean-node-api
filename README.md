@@ -10,6 +10,7 @@ O objetivo desse repositório é criar uma API com uma arquitetura bem definida 
 2. [Login](./requirements/login.md)
 3. [Criar enquete](./requirements/add-survey.md)
 4. [Listar enquetes](./requirements/load-surveys.md)
+5. [Responder enquete](./requirements/save-survey-result.md)
   
 > ## Princípios aplicados:
 * Single Responsibility Principle (SRP)
