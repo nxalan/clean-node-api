@@ -1,6 +1,6 @@
-import { loginPath } from '@/main/docs/paths/login-path'
-import { accountSchema } from '@/main/docs/schemas/accout-schema'
-import { loginParamsSchema } from '@/main/docs/schemas/login-params-schema'
+import { loginPath } from '@/main/docs/paths'
+import { badRequest, serverError, unauthorized, notFound } from '@/main/docs/components'
+import { accountSchema, loginParamsSchema, errorSchema } from '@/main/docs/schemas'
 
 export default {
   openapi: '3.0.0',
@@ -8,6 +8,10 @@ export default {
     title: 'Clean Node API',
     description: 'API de enquetes',
     version: '1.0.0'
+  },
+  license: {
+    name: 'GPL-3.0-or-later',
+    url: 'https://spdx.org/licenses/GPL-3.0-or-later.html'
   },
   servers: [{
     url: '/api'
@@ -20,6 +24,13 @@ export default {
   },
   schemas: {
     account: accountSchema,
-    loginParams: loginParamsSchema
+    loginParams: loginParamsSchema,
+    error: errorSchema
+  },
+  components: {
+    badRequest,
+    serverError,
+    unauthorized,
+    notFound
   }
 }
