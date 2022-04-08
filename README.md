@@ -12,6 +12,8 @@ O objetivo desse repositório é criar uma API com uma arquitetura bem definida 
 4. [Listar enquetes](./requirements/load-surveys.md)
 5. [Responder enquete](./requirements/save-survey-result.md)
   
+## Documentação
+1. [Swagger] (https://enquetesapi.herokuapp.com/api-docs)
 > ## Princípios aplicados:
 * Single Responsibility Principle (SRP)
 * Open Closed Principle (OCP)
