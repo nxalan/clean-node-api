@@ -1,42 +1,9 @@
 import { SignUpController } from './signup-controller'
 import { MissingParamError, ServerError, EmailInUseError } from '@/presentation/errors/index'
-import { AccountModel, AddAccount, AddAccountParams, HttpRequest, Validation, Authentication, AuthenticationParams } from './signup-controller-protocols'
+import { AddAccount, HttpRequest, Validation, Authentication } from './signup-controller-protocols'
 import { ok, serverError, badRequest, forbidden } from '@/presentation/helpers/http/http-helper'
 import { throwError } from '@/domain/test'
-
-const makeAddAccount = (): AddAccount => {
-  class AddAccountStub implements AddAccount {
-    async add (account: AddAccountParams): Promise<AccountModel> {
-      return new Promise(resolve => resolve(makeFakeAccount()))
-    }
-  }
-  return new AddAccountStub()
-}
-
-const makeAuthentication = (): Authentication => {
-  class AuthenticationStub implements Authentication {
-    async auth (authentication: AuthenticationParams): Promise<string> {
-      return new Promise(resolve => resolve('any_token'))
-    }
-  }
-  return new AuthenticationStub()
-}
-
-const makeValidation = (): Validation => {
-  class ValidationStub implements Validation {
-    validate (input: any): Error {
-      return null as any
-    }
-  }
-  return new ValidationStub()
-}
-
-const makeFakeAccount = (): AccountModel => ({
-  id: 'valid_id',
-  name: 'valid_name',
-  email: 'valid_email@mail.com',
-  password: 'valid_password'
-})
+import { mockAddAccount, mockAuthentication, mockValidation } from '@/presentation/test'
 
 const makeFakeRequest = (): HttpRequest => ({
   body: {
@@ -55,9 +22,9 @@ type SutTypes = {
 }
 
 const makeSut = (): SutTypes => {
-  const authenticationStub = makeAuthentication()
-  const addAccountStub = makeAddAccount()
-  const validationStub = makeValidation()
+  const authenticationStub = mockAuthentication()
+  const addAccountStub = mockAddAccount()
+  const validationStub = mockValidation()
   const sut = new SignUpController(addAccountStub, validationStub, authenticationStub)
   return {
     sut,
