@@ -23,5 +23,5 @@ export default {
   surveyAnswer: surveyAnswerSchema,
   saveSurveyParams: saveSurveyParamsSchema,
   surveyResult: surveyResultSchema,
-  surveyResultAnswerSchema: surveyResultAnswerSchema
+  surveyResultAnswer: surveyResultAnswerSchema
 }

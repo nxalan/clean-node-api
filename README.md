@@ -15,10 +15,10 @@
 
 ## Documentação
 
-[**Swagger**](https://enquetesapi.herokuapp.com/api-docs)
+[**SWAGGER**](https://enquetesapi.herokuapp.com/api-docs)
 
 
-> ## Princípios
+## Princípios
 
 * Single Responsibility Principle (SRP)
 * Open Closed Principle (OCP)
@@ -32,7 +32,7 @@
 * Composition Over Inheritance
 * Small Commits
 
-> ## Design Patterns
+## Design Patterns
 
 * Factory
 * Adapter
@@ -45,7 +45,7 @@
 * Builder
 * Singleton
 
-> ## Metodologias e Designs
+## Metodologias e Designs
 
 * TDD
 * Clean Architecture
@@ -59,7 +59,7 @@
 * Continuous Delivery
 * Continuous Deployment
 
- ## Bibliotecas e Ferramentas
+## Bibliotecas e Ferramentas
 
 * NPM
 * Typescript
@@ -85,7 +85,7 @@
 * In-Memory MongoDb Server
 * MockDate
 
-> ## Features do Node
+## Features do Node
 
 * Documentação de API com Swagger
 * API Rest com Express
@@ -97,7 +97,7 @@
 * Deploy no Heroku
 
 
-> ## Features do Typescript
+## Features do Typescript
 
 * POO Avançado
 * Interface
@@ -110,7 +110,7 @@
 * Deploy
 * Uso de Breakpoints
 
-> ## Features de Testes
+## Features de Testes
 
 * Testes Unitários
 * Testes de Integração (API Rest & GraphQL)
@@ -121,7 +121,7 @@
 * Spies
 * Fakes
   
-> ## Features do MongoDb
+## Features do MongoDb
 
 * Connect e Reconnect
 * Collections
