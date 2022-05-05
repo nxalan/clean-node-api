@@ -1,7 +1,7 @@
 {
-  "name": "clean-node-api",
+  "name": "survey-node-api",
   "version": "2.5.0",
-  "description": "",
+  "description": "API to answer surveys",
   "main": "index.js",
   "scripts": {
     "start": "node dist/main/server.js",
