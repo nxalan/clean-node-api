@@ -1,20 +1,20 @@
 # Login
 
-> ## Caso de sucesso
+> ## Success Case
 
-1. ✅ Recebe uma requisição do tipo **POST** na rota **/api/login**
-2. ✅ Valida dados obrigatórios **email** e **password**
-3. ✅ Valida que o campo **email** é um e-mail válido
-4. ✅ **Busca** o usuário com o email e senha fornecidos
-5. ✅ Gera um **token** de acesso a partir do ID do usuário
-6. ✅ **Atualiza** os dados do usuário com o token de acesso gerado
-7. ✅ Retorna **200** com o token de acesso e o nome do usuário
+1. ✅ Receive a request of type **POST** in **/api/login** route
+2. ✅ Validate required fields **email** and **password**
+3. ✅ Validate if **email** is a valid email
+4. ✅ **Search** an user with provided email and password
+5. ✅ Generate an access **token** from user ID
+6. ✅ **Update** user data with the generated access token
+7. ✅ Return code **200** with the generated access token and user name
 
-> ## Exceções
+> ## Exception
 
-1. ✅ Retorna erro **404** se a API não existir
-2. ✅ Retorna erro **400** se email ou password não forem fornecidos pelo client
-3. ✅ Retorna erro **400** se o campo email for um e-mail inválido
-4. ✅ Retorna erro **401** se não encontrar um usuário com os dados fornecidos
-5. ✅ Retorna erro **500** se der erro ao tentar gerar o token de acesso
-6. ✅ Retorna erro **500** se der erro ao tentar atualizar o usuário com o token de acesso gerado
+1. ✅ Return error code **404** if API does not exists
+2. ✅ Return error code **400** if email or password is not provided by the client
+3. ✅ Return error code **400** if the email provided is an invalid email
+4. ✅ Return error code **401** if there is no user found with the provided data
+5. ✅ Return error code **500** if a error is throw when trying to generate a new access token
+6. ✅ Return error code **500** if a error is thrown when trying to update a user with the generated access token

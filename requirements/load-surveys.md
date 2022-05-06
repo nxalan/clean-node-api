@@ -1,14 +1,14 @@
-# Listar enquetes
+# List Surveys
 
-> ## Caso de sucesso
+> ## Success Case
 
-1. ✅ Recebe uma requisição do tipo **GET** na rota **/api/surveys**
-2. ✅ Valida se a requisição foi feita por um **usuário**
-3. ✅ Retorna **204** se não tiver nenhuma enquete
-4. ✅ Retorna **200** com os dados das enquetes
+1. ✅ Receive a request of type **GET** in **/api/surveys** route
+2. ✅ Validate if the request is made by a **user**
+3. ✅ Return code **204** if there is no registered surveys
+4. ✅ Return code **200** with surveys data
 
-> ## Exceções
+> ## Exception
 
-1. ✅ Retorna erro **404** se a API não existir
-2. ✅ Retorna erro **403** se não for um usuário
-3. ✅ Retorna erro **500** se der erro ao tentar listar as enquetes
+1. ✅ Return error code **404** if API does not exists
+2. ✅ Return error code **403** if request if not from a user
+3. ✅ Return error code **500** if a error is throw when trying listing the surveys

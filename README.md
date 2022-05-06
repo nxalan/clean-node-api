@@ -4,21 +4,25 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
 [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)
-## APIs construídas
 
-1. [Cadastro](./requirements/signup.md)
+## Application Goal
+
+  The goal of this application is to create a portal that an user can answer surveys and view the result of the answered surveys. Every user needs a account to answer a survey and only the administrator can create new surveys.
+
+## Created API's
+
+1. [Signup](./requirements/signup.md)
 2. [Login](./requirements/login.md)
-3. [Criar enquete](./requirements/add-survey.md)
-4. [Listar enquetes](./requirements/load-surveys.md)
-5. [Responder enquete](./requirements/save-survey-result.md)
-6. [Resultado da enquete](./requirements/load-survey-result.md)
+3. [Create Survey](./requirements/add-survey.md)
+4. [List Surveys](./requirements/load-surveys.md)
+5. [Answer Survey](./requirements/save-survey-result.md)
+6. [Survey Results](./requirements/load-survey-result.md)
 
-## Documentação
+## Documentation
 
 [**SWAGGER**](https://enquetesapi.herokuapp.com/api-docs)
 
-
-## Princípios
+## Principles
 
 * Single Responsibility Principle (SRP)
 * Open Closed Principle (OCP)
@@ -45,7 +49,7 @@
 * Builder
 * Singleton
 
-## Metodologias e Designs
+## Metogies and Designs
 
 * TDD
 * Clean Architecture
@@ -59,7 +63,7 @@
 * Continuous Delivery
 * Continuous Deployment
 
-## Bibliotecas e Ferramentas
+## Libraries and Tools
 
 * NPM
 * Typescript
@@ -85,21 +89,21 @@
 * In-Memory MongoDb Server
 * MockDate
 
-## Features do Node
+## Node Features
 
-* Documentação de API com Swagger
-* API Rest com Express
-* Log de Erro
-* Segurança (Hashing, Encryption e Encoding)
+* API Documentation with Swagger
+* API Rest with Express
+* Automatic Error Logging
+* Security (Hashing, Encryption e Encoding)
 * CORS
 * Middlewares
-* Nível de Acesso nas Rotas (Admin, User e Anônimo)
-* Deploy no Heroku
+* Routes Access Level (Admin, User and Anonymous)
+* Heroku Deploy
 
 
-## Features do Typescript
+## Typescript Features
 
-* POO Avançado
+* Advanced OOP
 * Interface
 * TypeAlias
 * Namespace
@@ -110,27 +114,27 @@
 * Deploy
 * Uso de Breakpoints
 
-## Features de Testes
+## Tests Features
 
-* Testes Unitários
-* Testes de Integração (API Rest & GraphQL)
-* Cobertura de Testes
+* Unity Tests
+* Integration Tests (API Rest)
+* 100% Test Coverage
 * Test Doubles
 * Mocks
 * Stubs
 * Spies
 * Fakes
   
-## Features do MongoDb
+## MongoDB Features
 
-* Connect e Reconnect
+* Connect and Reconnect
 * Collections
-* InsertOne e InserMany
-* Find, FindOne e FindOneAndUpdate
+* InsertOne e InsertMany
+* Find, FindOne and FindOneAndUpdate
 * DeleteMany
 * UpdateOne
 * Aggregation (Match, Group, Unwind, Lookup, AddFields, Project, Sort)
 * ObjectId
-* Upsert e ReturnOriginal
+* Upsert and ReturnOriginal
 * Push, Divide, Multiply, ArrayElemAt, Cond, Sum
 * Filter, Map, Reduce, MergeObjects, ConcatArrays

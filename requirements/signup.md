@@ -1,26 +1,26 @@
 # Cadastro
 
-> ## Caso de sucesso
+> ## Success Case
 
-1. ✅ Recebe uma requisição do tipo **POST** na rota **/api/signup**
-2. ✅ Valida dados obrigatórios **name**, **email**, **password** e **passwordConfirmation**
-3. ✅ Valida que **password** e **passwordConfirmation** são iguais
-4. ✅ Valida que o campo **email** é um e-mail válido
-5. ✅ **Valida** se já existe um usuário com o email fornecido
-6. ✅ Gera uma senha **criptografada** (essa senha não pode ser descriptografada)
-7. ✅ **Cria** uma conta para o usuário com os dados informados, **substituindo** a senha pela senha criptorafada
-8. ✅ Gera um **token** de acesso a partir do ID do usuário
-9. ✅ **Atualiza** os dados do usuário com o token de acesso gerado
-10. ✅ Retorna **200** com o token de acesso e o nome do usuário
+1. ✅ Receive a request of type **POST** in **/api/signup** route
+2. ✅ Validate required fields **name**, **email**, **password** and **passwordConfirmation**
+3. ✅ Validate if **password** and **passwordConfirmation** are the same
+4. ✅ Validate if **email** is an valid email
+5. ✅ **Validate** if already exists an user with the provided email
+6. ✅ Generate a **encrypted** password (this password cannot be decrypted)
+7. ✅ **Create** an account for the user with the provided data, **replacing** the password with the encrypted password
+8. ✅ Generate a access **token** from the user ID
+9. ✅ **Update** the user data with the generated access token
+10. ✅ Return code **200** with user access token and user name
 
-> ## Exceções
+> ## Exception
 
-1. ✅ Retorna erro **404** se a API não existir
-2. ✅ Retorna erro **400** se name, email, password ou passwordConfirmation não forem fornecidos pelo client
-3. ✅ Retorna erro **400** se password e passwordConfirmation não forem iguais
-4. ✅ Retorna erro **400** se o campo email for um e-mail inválido
-5. ✅ Retorna erro **403** se o email fornecido já estiver em uso
-6. ✅ Retorna erro **500** se der erro ao tentar gerar uma senha criptografada
-7. ✅ Retorna erro **500** se der erro ao tentar criar a conta do usuário
-8. ✅ Retorna erro **500** se der erro ao tentar gerar o token de acesso
-9. ✅ Retorna erro **500** se der erro ao tentar atualizar o usuário com o token de acesso gerado
+1. ✅ Return error code **404** if API does not exists
+2. ✅ Return error code **400** if name, email, password ou passwordConfirmation is not provided
+3. ✅ Return error code **400** if password and passwordConfirmation are not the same
+4. ✅ Return error code **400** if the provided email is a invalid email
+5. ✅ Return error code **403** if the provided email already exists
+6. ✅ Return error code **500** if a error is throw when trying to generate a encrypted password
+7. ✅ Return error code **500** if a error is throw when trying to create a user account
+8. ✅ Return error code **500** if a error is throw when trying to generate a access token
+9. ✅ Return error code **500** if a error is throw when trying to update the user with the generated access token

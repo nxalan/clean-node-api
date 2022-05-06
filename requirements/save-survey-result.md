@@ -1,21 +1,21 @@
-# Responder enquete
+# Answer Survey
 
-> ## Caso de sucesso
+> ## Success Case
 
-1. ✅ Recebe uma requisição do tipo **PUT** na rota **/api/surveys/{survey_id}/results**
-2. ✅ Valida se a requisição foi feita por um **usuário**
-3. ✅ Valida o parâmetro **survey_id**
-4. ✅ Valida se o campo **answer** é uma resposta válida
-5. ✅ **Cria** um resultado de enquete com os dados fornecidos caso não tenha um registro
-6. ✅ **Atualiza** um resultado de enquete com os dados fornecidos caso já tenha um registro
-7. ✅ Retorna **200** com os dados do resultado da enquete
+1. ✅ Receive a request of type **PUT** in **/api/surveys/{survey_id}/results** route
+2. ✅ Validate if the request is made by a **user**
+3. ✅ Validate the parameter **survey_id**
+4. ✅ Validate if **answer** is a valid answer
+5. ✅ **Create** a survey result with the received data if there is no registered survey
+6. ✅ **Update** a survey result with the received data if there is an registered survey already
+7. ✅ Return code **200** com os dados do resultado da enquete
 
-> ## Exceções
+> ## Exception
 
-1. ✅ Retorna erro **404** se a API não existir
-2. ✅ Retorna erro **403** se não for um usuário
-3. ✅ Retorna erro **403** se o survey_id passado na URL for inválido
-4. ✅ Retorna erro **403** se a resposta enviada pelo client for uma resposta inválida
-5. ✅ Retorna erro **500** se der erro ao tentar criar o resultado da enquete
-6. ✅ Retorna erro **500** se der erro ao tentar atualizar o resultado da enquete
-7. ✅ Retorna erro **500** se der erro ao tentar carregar a enquete
+1. ✅ Return error code **404** if API does not exists
+2. ✅ Return error code **403** if the request is not from a user
+3. ✅ Return error code **403** if the provided survey_id is invalid
+4. ✅ Return error code **403** if the answer send by the client is a invalid answer
+5. ✅ Return error code **500** if a error is throw when trying to create a answer result
+6. ✅ Return error code **500** if a error is throw when trying to update a answer result
+7. ✅ Return error code **500** if a error is throw when trying to load an survey
