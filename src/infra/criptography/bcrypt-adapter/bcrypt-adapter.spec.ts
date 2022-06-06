@@ -1,13 +1,14 @@
-import bcrypt from 'bcrypt'
 import { BcryptAdapter } from './bcrypt-adapter'
+import { throwError } from '@/domain/test'
+import bcrypt from 'bcrypt'
 
 jest.mock('bcrypt', () => ({
   async hash (): Promise<string> {
-    return new Promise(resolve => resolve('hash'))
+    return Promise.resolve('hash')
   },
 
   async compare (): Promise<boolean> {
-    return new Promise(resolve => resolve(true))
+    return Promise.resolve(true)
   }
 }))
 
@@ -17,7 +18,7 @@ const makeSut = (): BcryptAdapter => {
 }
 
 describe('Bcrypt Adapter', () => {
-  describe('hash', () => {
+  describe('hash()', () => {
     test('Should call hash with correct values', async () => {
       const sut = makeSut()
       const hashSpy = jest.spyOn(bcrypt, 'hash')
@@ -33,14 +34,13 @@ describe('Bcrypt Adapter', () => {
 
     test('Should throw if hash throws', async () => {
       const sut = makeSut()
-      // eslint-disable-next-line @typescript-eslint/no-misused-promises
-      jest.spyOn(bcrypt, 'hash').mockImplementation(async () => Promise.reject(new Error()))
+      jest.spyOn(bcrypt, 'hash').mockImplementationOnce(throwError)
       const promise = sut.hash('any_value')
       await expect(promise).rejects.toThrow()
     })
   })
 
-  describe('compare', () => {
+  describe('compare()', () => {
     test('Should call compare with correct values', async () => {
       const sut = makeSut()
       const compareSpy = jest.spyOn(bcrypt, 'compare')
@@ -64,8 +64,7 @@ describe('Bcrypt Adapter', () => {
 
     test('Should throw if compare throws', async () => {
       const sut = makeSut()
-      // eslint-disable-next-line @typescript-eslint/no-misused-promises
-      jest.spyOn(bcrypt, 'compare').mockImplementation(async () => Promise.reject(new Error()))
+      jest.spyOn(bcrypt, 'compare').mockImplementationOnce(throwError)
       const promise = sut.compare('any_value', 'any_hash')
       await expect(promise).rejects.toThrow()
     })
