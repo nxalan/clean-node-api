@@ -8,7 +8,6 @@ export class SaveSurveyResultRepositorySpy implements SaveSurveyResultRepository
 
   async save (data: SaveSurveyResultParams): Promise<void> {
     this.saveSurveyResultParams = data
-    return Promise.resolve()
   }
 }
 
@@ -18,6 +17,6 @@ export class LoadSurveyResultRepositorySpy implements LoadSurveyResultRepository
 
   async loadBySurveyId (surveyId: string): Promise<SurveyResultModel> {
     this.surveyId = surveyId
-    return Promise.resolve(this.surveyResultModel)
+    return this.surveyResultModel
   }
 }

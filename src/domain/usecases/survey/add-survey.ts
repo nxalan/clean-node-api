@@ -7,5 +7,5 @@ export type AddSurveyParams = {
 }
 
 export interface AddSurvey {
-  add (data: AddSurveyParams): Promise<void>
+  add: (data: AddSurveyParams) => Promise<void>
 }
