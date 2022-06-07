@@ -12,7 +12,7 @@ export class SaveSurveyResultController implements Controller {
     try {
       const { surveyId } = httpRequest.params
       const { answer } = httpRequest.body
-      const accountId = httpRequest.accountId as string
+      const accountId = httpRequest.accountId
       const survey = await this.loadSurveyById.loadById(surveyId)
       if (survey) {
         const answers = survey.answers.map(a => a.answer)
