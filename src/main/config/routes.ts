@@ -1,3 +1,4 @@
+/* eslint-disable node/no-path-concat */
 import { Express, Router } from 'express'
 import { readdirSync } from 'fs'
 
