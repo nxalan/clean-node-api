@@ -1,6 +1,4 @@
 import { AddAccount, Authentication, LoadAccountByToken } from '@/domain/usecases'
-import { AccountModel } from '@/domain/models'
-import { mockAccountModel } from '@/tests/domain/mocks'
 import faker from 'faker'
 
 export class AddAccountSpy implements AddAccount {
