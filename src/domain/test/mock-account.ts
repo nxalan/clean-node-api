@@ -10,7 +10,7 @@ export const mockAddAccountParams = (): AddAccountParams => ({
 })
 
 export const mockAccountModel = (): AccountModel => ({
-  id: faker.random.uuid(),
+  id: faker.datatype.uuid(),
   name: faker.name.findName(),
   email: faker.internet.email(),
   password: faker.internet.password()

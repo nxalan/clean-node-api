@@ -6,7 +6,7 @@ import { throwError } from '@/domain/test'
 import MockDate from 'mockdate'
 import faker from 'faker'
 
-const mockRequest = (): HttpRequest => ({ accountId: faker.random.uuid() })
+const mockRequest = (): HttpRequest => ({ accountId: faker.datatype.uuid() })
 
 type SutTypes = {
   sut: LoadSurveysController

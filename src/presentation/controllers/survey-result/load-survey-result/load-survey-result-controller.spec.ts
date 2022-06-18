@@ -8,9 +8,9 @@ import MockDate from 'mockdate'
 import faker from 'faker'
 
 const mockRequest = (): HttpRequest => ({
-  accountId: faker.random.uuid(),
+  accountId: faker.datatype.uuid(),
   params: {
-    surveyId: faker.random.uuid()
+    surveyId: faker.datatype.uuid()
   }
 })
 

@@ -9,12 +9,12 @@ import faker from 'faker'
 
 const mockRequest = (answer: string | null = null): HttpRequest => ({
   params: {
-    surveyId: faker.random.uuid()
+    surveyId: faker.datatype.uuid()
   },
   body: {
     answer
   },
-  accountId: faker.random.uuid()
+  accountId: faker.datatype.uuid()
 })
 
 type SutTypes = {
