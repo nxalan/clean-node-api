@@ -1,4 +1,4 @@
-[![Complete workflow](https://github.com/nxalan/survey-node-api/actions/workflows/full-workflow.yml/badge.svg)](https://github.com/nxalan/survey-node-api/actions/workflows/full-workflow.yml)
+[![Build](https://github.com/nxalan/survey-node-api/actions/workflows/full-workflow.yml/badge.svg)](https://github.com/nxalan/survey-node-api/actions/workflows/full-workflow.yml)
 [![Coverage Status](https://coveralls.io/repos/github/nxalan/survey-node-api/badge.svg?branch=main)](https://coveralls.io/github/nxalan/survey-node-api?branch=main)
 [![Known Vulnerabilities](https://snyk.io/test/github/nxalan/survey-node-api/badge.svg)](https://snyk.io/test/github/nxalan/survey-node-api)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
