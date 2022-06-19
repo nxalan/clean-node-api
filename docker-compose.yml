@@ -11,14 +11,14 @@ services:
   api:
     container_name: api-container
     image: node:17
-    working_dir: /usr/src/clean-node-api
+    working_dir: /usr/src/survey-node-api
     restart: always
     command: bash -c "npm install --only=prod && npm run debug"
     environment:
-      - MONGO_URL=mongodb://mongo:27017/clean-node-api
+      - MONGO_URL=mongodb://mongo:27017/survey-node-api
     volumes:
-      - ./dist/:/usr/src/clean-node-api/dist/
-      - ./package.json:/usr/src/clean-node-api/package.json
+      - ./dist/:/usr/src/survey-node-api/dist/
+      - ./package.json:/usr/src/survey-node-api/package.json
     ports:
       - "5050:5050"
       - "9222:9222"
