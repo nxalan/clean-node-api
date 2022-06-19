@@ -24,7 +24,7 @@ const mockAccountId = async (): Promise<string> => {
 
 describe('SurveyMongoRepository', () => {
   beforeAll(async () => {
-    await MongoHelper.connect(global.__MONGO_URI__)
+    await MongoHelper.connect(process.env.MONGO_URL)
   })
 
   afterAll(async () => {

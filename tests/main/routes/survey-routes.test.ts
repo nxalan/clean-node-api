@@ -1,12 +1,15 @@
-import { Collection } from 'mongodb'
-import request from 'supertest'
-import { MongoHelper } from '@/infra/db/mongodb/mongo-helper'
-import app from '@/main/config/app'
-import { sign } from 'jsonwebtoken'
 import env from '@/main/config/env'
+import { MongoHelper } from '@/infra/db'
+import { setupApp } from '@/main/config/app'
+
+import { sign } from 'jsonwebtoken'
+import { Collection } from 'mongodb'
+import { Express } from 'express'
+import request from 'supertest'
 
 let surveyCollection: Collection
 let accountCollection: Collection
+let app: Express
 
 const mockAccessToken = async (): Promise<string> => {
   const res = await accountCollection.insertOne({
@@ -29,7 +32,8 @@ const mockAccessToken = async (): Promise<string> => {
 
 describe('Survey Routes', () => {
   beforeAll(async () => {
-    await MongoHelper.connect(global.__MONGO_URI__)
+    app = await setupApp()
+    await MongoHelper.connect(process.env.MONGO_URL)
   })
 
   afterAll(async () => {
@@ -76,6 +80,7 @@ describe('Survey Routes', () => {
         .expect(204)
     })
   })
+
   describe('GET /surveys', () => {
     test('Should return 403 on load surveys without accessToken', async () => {
       await request(app)
@@ -83,20 +88,12 @@ describe('Survey Routes', () => {
         .expect(403)
     })
 
-    test('Should return 200 on load surveys with valid accessToken', async () => {
+    test('Should return 204 on load surveys with valid accessToken', async () => {
       const accessToken = await mockAccessToken()
-      await surveyCollection.insertMany([{
-        question: 'any_question',
-        answers: [{
-          image: 'any_image',
-          answer: 'any_answer'
-        }],
-        date: new Date()
-      }])
       await request(app)
         .get('/api/surveys')
         .set('x-access-token', accessToken)
-        .expect(200)
+        .expect(204)
     })
   })
 })

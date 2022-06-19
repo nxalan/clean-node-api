@@ -1,14 +1,17 @@
+import { MongoHelper } from '@/infra/db'
+import { setupApp } from '@/main/config/app'
 import { Collection } from 'mongodb'
-import request from 'supertest'
-import { MongoHelper } from '@/infra/db/mongodb/mongo-helper'
-import app from '@/main/config/app'
 import { hash } from 'bcrypt'
+import { Express } from 'express'
+import request from 'supertest'
 
 let accountCollection: Collection
+let app: Express
 
 describe('Login Routes', () => {
   beforeAll(async () => {
-    await MongoHelper.connect(global.__MONGO_URI__)
+    app = await setupApp()
+    await MongoHelper.connect(process.env.MONGO_URL)
   })
 
   afterAll(async () => {
@@ -22,14 +25,24 @@ describe('Login Routes', () => {
 
   describe('POST /signup', () => {
     test('Should return 200 on signup', async () => {
-      const account = {
-        name: 'any_name',
-        email: 'any_email@email.com',
-        password: 'any_password',
-        passwordConfirmation: 'any_password'
-      }
-      const response = await request(app).post('/api/signup').send(account)
-      expect(response.status).toBe(200)
+      await request(app)
+        .post('/api/signup')
+        .send({
+          name: 'Alan',
+          email: 'allan_net@live.com',
+          password: '123',
+          passwordConfirmation: '123'
+        })
+        .expect(200)
+      await request(app)
+        .post('/api/signup')
+        .send({
+          name: 'Alan',
+          email: 'allan_net@live.com',
+          password: '123',
+          passwordConfirmation: '123'
+        })
+        .expect(403)
     })
   })
 

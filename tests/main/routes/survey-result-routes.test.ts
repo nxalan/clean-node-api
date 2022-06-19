@@ -1,19 +1,20 @@
-import request from 'supertest'
-import { MongoHelper } from '@/infra/db/mongodb/mongo-helper'
-import { Collection } from 'mongodb'
-import app from '@/main/config/app'
-import { sign } from 'jsonwebtoken'
 import env from '@/main/config/env'
+import { MongoHelper } from '@/infra/db'
+import { setupApp } from '@/main/config/app'
+import { sign } from 'jsonwebtoken'
+import { Collection } from 'mongodb'
+import { Express } from 'express'
+import request from 'supertest'
 
 let surveyCollection: Collection
 let accountCollection: Collection
+let app: Express
 
 const mockAccessToken = async (): Promise<string> => {
   const res = await accountCollection.insertOne({
     name: 'Alan',
     email: 'allan_net@live.com',
-    password: '123',
-    role: 'admin'
+    password: '123'
   })
   const id = res.insertedId.toHexString()
   const accessToken = sign({ id }, env.jwtSecret)
@@ -29,7 +30,8 @@ const mockAccessToken = async (): Promise<string> => {
 
 describe('Survey Routes', () => {
   beforeAll(async () => {
-    await MongoHelper.connect(global.__MONGO_URI__)
+    app = await setupApp()
+    await MongoHelper.connect(process.env.MONGO_URL)
   })
 
   afterAll(async () => {
@@ -47,11 +49,14 @@ describe('Survey Routes', () => {
     test('Should return 403 on save survey result without accessToken', async () => {
       await request(app)
         .put('/api/surveys/any_id/results')
-        .send({ answer: 'any_answer' })
+        .send({
+          answer: 'any_answer'
+        })
         .expect(403)
     })
 
     test('Should return 200 on save survey result with accessToken', async () => {
+      const accessToken = await mockAccessToken()
       const res = await surveyCollection.insertOne({
         question: 'Question',
         answers: [{
@@ -62,11 +67,12 @@ describe('Survey Routes', () => {
         }],
         date: new Date()
       })
-      const accessToken = await mockAccessToken()
       await request(app)
         .put(`/api/surveys/${res.insertedId.toHexString()}/results`)
         .set('x-access-token', accessToken)
-        .send({ answer: 'Answer 1' })
+        .send({
+          answer: 'Answer 1'
+        })
         .expect(200)
     })
   })

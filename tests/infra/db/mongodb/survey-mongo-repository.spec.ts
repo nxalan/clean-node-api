@@ -1,7 +1,7 @@
-import FakeObjectId from 'bson-objectid'
-import { Collection, ObjectId } from 'mongodb'
 import { SurveyMongoRepository, MongoHelper } from '@/infra/db'
 import { mockAddSurveyParams, mockAddAccountParams } from '@/tests/domain/mocks'
+import { Collection, ObjectId } from 'mongodb'
+import FakeObjectId from 'bson-objectid'
 
 let surveyCollection: Collection
 let surveyResultCollection: Collection
@@ -18,7 +18,7 @@ const makeSut = (): SurveyMongoRepository => {
 
 describe('SurveyMongoRepository', () => {
   beforeAll(async () => {
-    await MongoHelper.connect(global.__MONGO_URI__)
+    await MongoHelper.connect(process.env.MONGO_URL)
   })
 
   afterAll(async () => {

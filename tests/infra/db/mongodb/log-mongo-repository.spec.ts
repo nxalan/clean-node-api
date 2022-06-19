@@ -6,11 +6,11 @@ const makeSut = (): LogMongoRepository => {
   return new LogMongoRepository()
 }
 
-describe('LogMongoRepository', () => {
-  let errorCollection: Collection
+let errorCollection: Collection
 
+describe('LogMongoRepository', () => {
   beforeAll(async () => {
-    await MongoHelper.connect(global.__MONGO_URI__)
+    await MongoHelper.connect(process.env.MONGO_URL)
   })
 
   afterAll(async () => {

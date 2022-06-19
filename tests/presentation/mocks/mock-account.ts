@@ -26,7 +26,7 @@ export class AuthenticationSpy implements Authentication {
 
 export class LoadAccountByTokenSpy implements LoadAccountByToken {
   accessToken: string
-  role: string | undefined
+  role: string
   result = {
     id: faker.datatype.uuid()
   }

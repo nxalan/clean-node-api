@@ -3,11 +3,15 @@ import { mockAddAccountParams } from '@/tests/domain/mocks'
 import { Collection } from 'mongodb'
 import faker from 'faker'
 
+const makeSut = (): AccountMongoRepository => {
+  return new AccountMongoRepository()
+}
+
 let accountCollection: Collection
 
 describe('AccountMongoRepository', () => {
   beforeAll(async () => {
-    await MongoHelper.connect(global.__MONGO_URI__)
+    await MongoHelper.connect(process.env.MONGO_URL)
   })
 
   afterAll(async () => {
@@ -18,10 +22,6 @@ describe('AccountMongoRepository', () => {
     accountCollection = MongoHelper.getCollection('accounts')
     await accountCollection.deleteMany({})
   })
-
-  const makeSut = (): AccountMongoRepository => {
-    return new AccountMongoRepository()
-  }
 
   describe('add()', () => {
     test('Should return an account on success', async () => {
