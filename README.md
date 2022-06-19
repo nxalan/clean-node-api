@@ -1,4 +1,4 @@
-[![Build Status](https://app.travis-ci.com/nxalan/survey-node-api.svg?branch=main)](https://app.travis-ci.com/nxalan/survey-node-api)
+[![Complete workflow](https://github.com/nxalan/survey-node-api/actions/workflows/full-workflow.yml/badge.svg)](https://github.com/nxalan/survey-node-api/actions/workflows/full-workflow.yml)
 [![Coverage Status](https://coveralls.io/repos/github/nxalan/survey-node-api/badge.svg?branch=main)](https://coveralls.io/github/nxalan/survey-node-api?branch=main)
 [![Known Vulnerabilities](https://snyk.io/test/github/nxalan/survey-node-api/badge.svg)](https://snyk.io/test/github/nxalan/survey-node-api)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
@@ -20,7 +20,7 @@
 
 ## Documentation
 
-[**SWAGGER**](https://enquetesapi.herokuapp.com/api-docs)
+* [**SWAGGER**](https://enquetesapi.herokuapp.com/api-docs)
 
 ## Principles
 
